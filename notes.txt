@@ -1,0 +1,88 @@
+8th Jan 2026
+============
+
+    -> Azure Cloud 
+
+        -> Applications have data 
+
+            -> Data ?? 
+
+                -> Data is in Server (Web Server, Database Server, File Storage Server etc)
+
+            -> Server ??
+
+                -> Server is a computer system, that takes a Request and send Response 
+
+                -> Where are Servers ??
+
+                    -> Servers are hosted in Datacenters 
+
+    -> Data Center 
+
+        -> A Data Center is a building, a dedicated space within the building or 
+        a group of buildings, used to house computer systems and associated components
+        such as telecommunication and storage systems 
+
+    -> Cons Of Physical Data Center 
+
+        -> Buy Physical Place 
+        -> Buy Devices [ CPU / RAM / HDD / Routers / Switches ]
+        -> But Cables, AC's, Humidifiers etc 
+        -> Human Resources [ Physical Security, System Admins, Networking Teams etc]
+        -> etc 
+    
+    -> Cloud Data Center 
+
+    -> Cloud Computing 
+
+        -> The Cloud refers to "On-Demand" availability of Compute Power, 
+        Database Storage, Applications and Other IT Resources through a 
+        Cloud Platform(Azure, AWS, GCP, OCI etc) via "Internet" with
+        "Pay As You Go" Pricing
+
+        -> Cloud Computing Can Be Compared To Online Ride Services
+
+    -> Cloud Offerings 
+
+        -> Infrastructure As A Service - IAAS   
+
+            -> Hardware (2 CPU - 4 GB RAM - 200 GB HDD)
+
+            -> Requirement is Setup MySQL Database 
+
+                -> Prepare Private Subnets 
+                -> Prepare Bastion / Jump 
+                -> Prepare Private Instances 
+                -> Setup OS - Ubuntu (Updates)
+                -> Download MySQL Software
+                -> Install MySQL Software
+                -> Secure MySQL Software
+                -> Backup Database
+
+            -> VNET, VM etc 
+
+        -> Platform As A Service - PAAS  
+
+            -> Requirement is Setup MySQL Database 
+
+            -> Azure Offers SQL Service(Select Database Type & Use)
+
+        -> Software As A Service - SAAS 
+
+            -> Direct Software (Subscribe & Pay)
+
+    -> NOTE: Compare above to Online Ride Services like 
+            Uber: Bikes, Cars, Autos
+            Azure: IAAS, PAAS, SAAS 
+
+        -> IAAS + PAAS => My Custom Solution For Client 
+
+            -> Client needs a Web Application With MySQL Database
+
+                -> Web Application: IAAS Service (Deploy Web Application) 
+
+                -> Database: PAAS Service (Setup DB and Connect With Web Application Coming from IAAS)
+
+
+            
+
