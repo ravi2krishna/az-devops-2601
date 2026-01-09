@@ -84,5 +84,96 @@
                 -> Database: PAAS Service (Setup DB and Connect With Web Application Coming from IAAS)
 
 
+9th Jan 2026
+============
+
+    -> Traditional Approach (Setting Up Application Infrastructure On Physical Datacenters)
+
+        -> Myntra Application (Ecommerce Platform)
+
+            -> Servers 
+                +
+            -> Storage 
+                +
+            -> Databases                =======>    Application (Ecommerce Platform / Any Application)
+                +
+            -> Networking 
+                +
+            -> Security 
+                +
+            -> etc 
+
+    -> New Approach (Setting Up Application Infrastructure On Cloud Datacenters - AZURE)
+
+        -> Myntra Application (Ecommerce Platform)
+
+            -> Servers      -   Azure Virtual Machines Service
+                +                       +
+            -> Storage      -   Azure storage accounts Service
+                +                       +
+            -> Databases    -   Azure SQL Service                   =======>    Application (Ecommerce Platform / Any Application)
+                +                       +
+            -> Networking   -   Azure Virtual Networks Service
+                +                       +
+            -> Security     -   Azure Entra ID 
+                +                       +
+            -> etc          -   etc
+
+
+    -> Once Application is built using Cloud Infrastructure
+
+        -> Application should have following characteristics (Four Pillars Of Cloud)
+
+            -> High Availability - HA
+
+                -> High Availability in Azure ensures Applications are continuously 
+                    Accessible & Operational (24X7) i.e Uptime 99.9% and Above 
+
+            -> Fault Tolerance - FT
+
+                -> Fault Tolerance in Azure is an ability of the systems to continue 
+                operating without interruption in the event of Hardware Failures i.e "Self Healing" 
+
+            -> Scalability 
+
+                -> Scalability in Azure is an ability of the systems to handle the 
+                increasing workloads and accommodate according to Growing Demands.
+
+            -> Security 
+
+                -> Security in Azure refers to measures taken to protect cloud Resources, Data and 
+                Applications from Unauthorized Access 
+
+    
+    -> Infrastructure As A Service - IAAS 
+
+        -> Azure Global Infra - https://azure.microsoft.com/en-in/global-infrastructure/
+
+        -> Azure Infrastructure is broken down into 
+
+            -> Regions 
+
+            -> Availability Zones 
+        
+        -> Azure Cloud Computing resources(Servers, Databases, Storage etc) are 
+        available across the world in different geographical locations i.e regions.
+
+        -> To Utilize Azure Infrastructure we need to create Azure Account 
+
+            -> https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
+
+                -> Email
+                -> Mobile Number
+                -> Card (2 INR for verification)
+
+        -> Regions
             
+            -> Azure Cloud Computing Resources or Data Centers are available in different Geographical Locations, 
+            which are termed as REGIONS.
+
+        -> Availability Zones 
+
+            -> Availability Zones are unique physical locations within an Azure region.
+
+
 
