@@ -287,8 +287,77 @@
                     -> 10.0.8.255 - Network broadcast address
 
 
+13th Jan 2026
+==============
 
+    -> Route Tables 
 
+        -> An Azure Route Table is a resource that controls network traffic flow 
+        within an Azure Virtual Network (VNet) by defining custom rules, 
+        called User-Defined Routes (UDRs), which override default Azure system routes. 
+        
+        -> You associate a route table with subnets, directing traffic based on destination
+        (IP address range) and next hop (e.g., a virtual appliance, gateway, or the internet) to enable granular control, security, and advanced network topologies like hub-and-spoke. 
+
+    -> Considering Our VNET 
+
+        -> We Want Two Types Of Traffic Flow 
+
+            -> Public: Which should be Accessible From Internet 
+
+                -> Web & Application Subnets
+
+            -> Private: Which should not be Accessible From Internet 
+
+                -> Database Subnet 
+
+    -> Network Security Groups - NSG (Firewalls)
+
+        -> Azure network security group is used to filter network traffic to and from 
+        Azure resources in an Azure virtual network.
+
+        -> A network security group contains security rules that allow or deny 
+        inbound network traffic.
+
+        -> For each rule, you can specify source and destination, port, and protocol.
+
+        -> Based On Application Requirements we define rules in NSG 
+
+            -> Myntra Web NSG 
+
+                -> SSH Access (Admin Access For Linux Server) - Port 22 
+                -> RDP Access (Admin Access For Windows Server) - Port 3389 
+                -> HTTP Access (For Web Applications) - Port 80 
+                -> HTTPS Access (For Web Applications Secured) - Port 443 
+
+            -> Myntra App NSG 
+
+                -> SSH Access (Admin Access For Linux Server) - Port 22 
+                -> RDP Access (Admin Access For Windows Server) - Port 3389 
+                -> HTTP Access (For Backends / API) - Port 8080 (8000 - 3000 - 5000 etc)
+
+            -> Myntra DB NSG 
+
+                -> SSH Access (Admin Access For Linux Server) - Port 22 
+                -> RDP Access (Admin Access For Windows Server) - Port 3389 
+                -> MySQL DB Access - Port 3306 
+
+    -> Azure Public IP's 
+
+        -> Public IP addresses allow Internet resources to communicate inbound to 
+        Azure resources. Public IP addresses enable Azure resources to communicate to 
+        Internet and public-facing Azure services.
+
+            -> For Myntra Web Server we need an Public IP 
+
+    -> Azure Network Interface Card - NIC 
+
+        -> In Azure, a Network Interface (NIC) is a crucial resource that connects a 
+        Virtual Machine (VM) to a Virtual Network (VNet), enabling communication 
+        with the internet, other Azure services, and on-premises networks. 
+        Each NIC acts as a virtual network adapter, allowing for IP configurations 
+        (private/public, static/dynamic), association with Network Security Groups (NSGs) 
+        for traffic filtering, and even multiple NICs per VM for advanced connectivity.
 
 
 
