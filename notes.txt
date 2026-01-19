@@ -360,7 +360,42 @@
         for traffic filtering, and even multiple NICs per VM for advanced connectivity.
 
 
+19th Jan 2026
+==============
 
+    -> Create PIP 
 
+    -> Create NIC i.e Network Interface 
+
+    -> Associate PIP & NSG 
+
+    -> Azure Virtual Machines - VM's 
+
+        -> An Azure Virtual Machine (VM) is a scalable, on-demand computing resource in the Microsoft Azure 
+        cloud that emulates a physical computer, giving you control over the OS and applications without 
+        managing hardware.
+
+    -> Azure Virtual Machines - VM's (Components)
+
+        Desktop / Laptop                                    Azure Virtual Machine 
+
+        -> Hardware                                         -> VM Sizes [ CPU + RAM ]
+            -> Dell 3, 5 series etc                             -> General / Compute / etc (b1s, b2s etc)
+                                                                -> https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/
+
+        -> Hard Drive [200 GB / 500 GB etc]                 -> Azure Disk [200 GB / 500 GB etc]
+
+        -> Install Operating System                         -> Azure Images i.e Choosing Operating System
+            -> We can use Win, Linux etc                        -> We can use Win, Linux etc                        
+
+        -> Network                                          -> Azure Virtual Network  
+            -> We use routers, switches, firewalls etc           -> We use routers, switches, firewalls etc
+ 
+        -> Login / Authentication                           -> Login / Authentication 
+            -> Username & Password                               -> Username & Key  
+
+        -> Now start working according to Req                -> Now start working according to Req   
+            -> Using Applications                              -> Building Applications
+                -> Browser, Music Players etc                       -> Using Applications Web Sever, DB Server etc 
 
 
