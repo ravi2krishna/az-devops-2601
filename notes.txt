@@ -399,3 +399,74 @@
                 -> Browser, Music Players etc                       -> Using Applications Web Sever, DB Server etc 
 
 
+20th Jan 2026
+==============
+
+    -> Now Assume We Have Created VNET Using Graphical Interface 
+
+    -> Most Popular Applications
+        
+        https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+    -> Requirement Given by EDIFY
+
+    -> Edify is going to setup the LMS App environment i.e servers on AZURE 
+
+    -> These servers are grouped into three subnets each with 4k servers
+
+	-> First Subnet is for web servers, around 4k
+
+	-> Second Subnet is for backend servers, around 4k
+
+	-> Third Subnet is for database servers, around 4k
+
+    -> In the future, they might add more number of subnets i.e cache subnets, load balancer subnet etc
+
+    -> The web servers and app servers needs to be communicated from internet
+
+	-> The database servers needs to be communicated only from App Servers, but not from internet
+
+    -> Coming to security of Web Servers, they should have only 
+		-> SSH traffic enabled for administration from internet
+		-> HTTP traffic for clients from internet
+
+	-> Coming to security of App Servers, they should have only 
+		-> SSH traffic enabled for administration from internet
+		-> HTTP traffic port 8080 for clients from internet
+
+	-> Coming to security of Database Servers, they should have only SSH access from app servers
+		-> SSH traffic enabled from web servers only
+		-> Postgres Database Traffic Allowed from App Servers
+
+    -> Earlier we had our infrastructure setup using Graphical User Interface (GUI) (Beginner) 
+
+        -> Created Edify VNET(web, backend, database) using GUI took 45 mins 
+        -> New Req: TCS VNET(web, backend, database) using GUI took 45 mins 
+        -> New Req: ACC VNET(web, backend, database) using GUI took 45 mins 
+
+    -> We can also setup infrastructure using Command Line Interface (CLI) (Intermediate)
+
+    -> The Azure Command-Line Interface (CLI) is a cross-platform command-line tool used to 
+    create and manage Azure resources efficiently, with an emphasis on automation and scripting. 
+    It is available for Windows, macOS, and Linux.
+
+    -> Create Edify VNET in us-west 
+
+    -> Using CLI Creating Azure Resources 
+
+        -> Install Azure CLI (Win)
+
+        -> Install Azure CLI (Linux) : curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    -> To Login With Your Account 
+
+        -> az login --use-device-code 
+
+    -> Create Edify VNET in us-west using CLI 
+
+        -> az group list 
+        -> az group create --location westus2 --name edify-rg 
+        -> az network vnet create --address-prefixes 10.0.0.0/16 --name edify-vnet --resource-group edify-rg 
+        -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-web-sn --address-prefixes 10.0.0.0/20
+        -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-app-sn --address-prefixes 10.0.16.0/20
+        -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-db-sn --address-prefixes 10.0.32.0/20
