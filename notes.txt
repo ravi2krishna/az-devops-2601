@@ -470,3 +470,36 @@
         -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-web-sn --address-prefixes 10.0.0.0/20
         -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-app-sn --address-prefixes 10.0.16.0/20
         -> az network vnet subnet create -g edify-rg --vnet-name edify-vnet -n edify-db-sn --address-prefixes 10.0.32.0/20
+
+
+21st Jan 2026
+==============
+
+    -> Create Edify VNET in us-west using CLI - Continued
+    
+        -> az network route-table create -g edify-rg -n edify-pub-rt 
+
+        -> az network route-table route create -g edify-rg --route-table-name edify-pub-rt -n www-route --next-hop-type Internet --address-prefix 0.0.0.0/0
+
+        -> az network vnet subnet update --resource-group edify-rg --vnet-name edify-vnet --name edify-web-sn --route-table edify-pub-rt
+        
+        -> az network vnet subnet update --resource-group edify-rg --vnet-name edify-vnet --name edify-app-sn --route-table edify-pub-rt
+        
+        -> az network nsg create -g edify-rg -n edify-web-nsg 
+
+        -> az network nsg rule create -g edify-rg --nsg-name edify-web-nsg  -n ssh --priority 100 --protocol '*' --direction Inbound --source-address-prefixes '*' --source-port-ranges '*' --destination-address-prefixes '*' --destination-port-ranges 22  --access Allow --description "Allow SSH Access"
+        
+        -> az network nsg rule create -g edify-rg --nsg-name edify-web-nsg  -n web --priority 110 --protocol '*' --direction Inbound --source-address-prefixes '*' --source-port-ranges '*' --destination-address-prefixes '*' --destination-port-ranges 80 443  --access Allow --description "Allow HTTP/HTTPS Access"
+
+        -> az network nsg rule create -g edify-rg --nsg-name edify-web-nsg  -n rdp --priority 120 --protocol '*' --direction Inbound --source-address-prefixes '*' --source-port-ranges '*' --destination-address-prefixes '*' --destination-port-ranges 3389  --access Allow --description "Allow RDP Access"
+
+        -> az network public-ip create -g edify-rg -n edify-web-pip 
+
+        -> az network nic create -g edify-rg --vnet-name edify-vnet --subnet edify-web-sn -n edify-web-nic 
+
+        -> az network nic ip-config update -g edify-rg --nic-name edify-web-nic -n ipconfig1 --public-ip-address edify-web-pip
+
+        -> az network nic update -g edify-rg -n edify-web-nic --network-security-group edify-web-nsg 
+
+
+    -> Next: Windows Server 
