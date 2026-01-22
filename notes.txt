@@ -501,5 +501,54 @@
 
         -> az network nic update -g edify-rg -n edify-web-nic --network-security-group edify-web-nsg 
 
+22nd Jan 2026
+==============
 
     -> Next: Windows Server 
+
+    -> az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204
+
+    -> az vm create -n edify-win-server -g edify-rg --image MicrosoftWindowsServer:WindowsServer:2022-datacenter:latest --size Standard_B2s --nics edify-web-nic --admin-username ravi --admin-password Login@123456
+
+
+    -> GUI: Beginners 
+
+    -> CLI: Intermediate 
+
+    -> Code: Professional (DevOps)
+
+    -> Infrastructure As Code - IaC (Pro/Expert)
+
+        -> Infrastructure as code is the process of managing and provisioning computer 
+        data center resources through machine-readable definition files(CODE/SCRIPT), 
+        rather than physical hardware configuration(GUI) or 
+        interactive configuration tools(Azure CLI).
+
+        -> IaC Concept 
+
+            -> The IaC model approaches networks, servers, databases, and other resources 
+            in a descriptive manner via "versioning" (similar to using VCS in Development, 
+            in DevOps we are tracking infrastructure code). 
+
+                -> Like Developers write "Application Code" to Build Applications
+
+                    -> Technologies - Java, Python, Node etc
+                
+                -> As DevOps Engineers, will be writing "Infrastructure Code/Scripts" to 
+                    Build Infrastructure
+
+                    -> Tools / Services - Azure ARM Templates, AWS Cloudformation Templates etc
+
+    -> Azure ARM Templates  
+
+        -> An Azure Resource Manager (ARM) template is a JavaScript Object Notation (JSON) 
+        file that defines the infrastructure and configuration for your Azure project 
+        using a declarative syntax. It allows you to provision, manage, and deploy 
+        all the necessary resources for your solution in a single, coordinated operation, 
+        ensuring consistency and repeatability across different environments. 
+
+        -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
+
+        -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/
+
+
