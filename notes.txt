@@ -508,7 +508,7 @@
 
     -> az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204
 
-    -> az vm create -n edify-win-server -g edify-rg --image MicrosoftWindowsServer:WindowsServer:2022-datacenter:latest --size Standard_B2s --nics edify-web-nic --admin-username ravi --admin-password Login@123456
+    -> az vm create -n edify-win -g edify-rg --image MicrosoftWindowsServer:WindowsServer:2022-datacenter:latest --size Standard_B2s --nics edify-web-nic --admin-username ravi --admin-password Login@123456
 
 
     -> GUI: Beginners 
@@ -550,5 +550,26 @@
         -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 
         -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/
+
+
+23rd Jan 2026
+==============
+
+    -> Templates Can be Created Using
+
+        -> Using Microsoft Website 
+
+        -> USing Visual Studio Code (IDE) 
+
+            -> Install Azure Resource Manager Snippets Extension
+
+        -> Best Approach is generating templates from Azure Portal (Recommended)
+
+            -> az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+
+            -> az group create --location westus2 --name tcs
+
+            -> az deployment group create --resource-group tcs --template-file infra.json 
+
 
 
