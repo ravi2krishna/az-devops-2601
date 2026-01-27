@@ -572,4 +572,99 @@
             -> az deployment group create --resource-group tcs --template-file infra.json 
 
 
+27th Jan 2026
+==============
 
+    -> Azure Virtual Machines - VM's 
+
+        -> An Azure Virtual Machine (VM) is a scalable, on-demand computing resource in the Microsoft Azure 
+        cloud that emulates a physical computer, giving you control over the OS and applications without 
+        managing hardware.
+
+    -> Azure Virtual Machines - VM's (Components)
+
+        Desktop / Laptop                                    Azure Virtual Machine 
+
+        -> Hardware                                         -> VM Sizes [ CPU + RAM ]
+            -> Dell 3, 5 series etc                             -> General / Compute / etc (b1s, b2s etc)
+                                                                -> https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/
+
+        -> Hard Drive [200 GB / 500 GB etc]                 -> Azure Disk [200 GB / 500 GB etc]
+
+        -> Install Operating System                         -> Azure Images i.e Choosing Operating System
+            -> We can use Win, Linux etc                        -> We can use Win, Linux etc                        
+
+        -> Network                                          -> Azure Virtual Network  
+            -> We use routers, switches, firewalls etc           -> We use routers, switches, firewalls etc
+ 
+        -> Login / Authentication                           -> Login / Authentication 
+            -> Username & Password                               -> Username & Key  
+
+        -> Now start working according to Req                -> Now start working according to Req   
+            -> Using Applications                              -> Building Applications
+                -> Browser, Music Players etc                       -> Using Applications Web Sever, DB Server etc 
+
+
+    -> Web Servers 
+
+    -> App Servers 
+
+    -> Database Servers
+
+    -> Web Servers
+
+        -> A web server is computer software that accepts requests via HTTP 
+        to distribute web content.
+
+        -> Nginx Web Server is popular for hosting Websites 
+
+        -> Earlier we used username and password to Connect with server
+
+        -> Now we are going to use username and key to Connect with server
+
+        -> Key pair: Public Key(cloud) & Private Key(downloaded in your system) 
+
+        -> To Authenticate Server we use Private Key(.pem file)
+
+    -> To Login With Private Key 
+
+        -> Terminal / Command Prompt and connect 
+
+            -> ssh -i private_key username@public-ip 
+
+        -> https://ssheasy.com/ 
+
+    -> To Know which service is currently running on server 
+
+        -> sudo ss -ntpl 
+
+    -> Web Servers Run on port 80 over HTTP protocol
+
+    -> Installing Nginx Web Server 
+
+        -> sudo apt update -y 
+        -> sudo apt install nginx -y 
+        -> sudo ss -ntpl 
+        -> Browse Public IP 
+    
+    -> Deploy Application 
+
+        -> Application Code - https://github.com/ravi2krishna/ecomm.git 
+
+        -> Every Web Server has Document Root i.e location where code should be placed 
+
+            -> /var/www/html 
+            -> ls /var/www/html
+            -> cat /var/www/html/index.nginx-debian.html
+            -> sudo git clone https://github.com/ravi2krishna/ecomm.git /var/www/html 
+            -> sudo rm -r /var/www/html/* 
+            -> ls /var/www/html
+            -> sudo git clone https://github.com/ravi2krishna/ecomm.git /var/www/html 
+
+    -> To take the backup process for above Application, We can create Custom Images 
+
+    -> Create Image Gallery and Store Custom Image 
+
+        -> Azure compute galleries
+
+        
