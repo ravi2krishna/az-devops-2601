@@ -668,3 +668,26 @@
         -> Azure compute galleries
 
         
+28th Jan 2026
+==============
+
+    -> Azure Disks 
+
+        -> When we create VM, primary disk will be assigned based on the Zone Where VM is launched 
+
+        -> While Creating VM, by default Primary Disk i.e OS Disk will be applied and optionally
+        you can add Secondary Disks i.e Data Disks or Attach Existing Disks 
+
+        -> NOTE: Availability Zones and Server Zones are Locked With Each Other 
+
+        -> Create Disk 
+        -> Attach Disk 
+        -> Detach Disk 
+        -> Delete Disk
+
+        -> Modifying Disk 
+
+            -> Only Scaling Up is Possible 
+            -> No Scaling Down 
+            -> Changing Zone is not possible 
+
