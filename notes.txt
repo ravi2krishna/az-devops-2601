@@ -691,3 +691,83 @@
             -> No Scaling Down 
             -> Changing Zone is not possible 
 
+29th Jan 2026
+==============
+
+    -> Azure Disk is Purely Server Based Storage 
+
+    -> Without Azure Disk, We cannot setup Servers / Virtual Machines (OS Disk is must)
+
+    -> Azure Disk Design Principal (Limitations)
+
+        -> Using Azure Disk We cannot directly work with Internet Based Storage 
+
+        -> Using Azure Disk we cannot get data across multiple zones 
+
+        -> Using Azure Disk we cannot scale down, only scale up is possible and need to pay 
+        complete storage charges, regardless we use it or not 
+
+        -> Costlier in terms of price 
+
+        -> 500 GB Azure Disk - $22 
+    
+    -> Storage Center / Blob Storage
+
+        -> Azure Blob Storage provides scalable, cost-efficient object storage in the cloud. 
+        Store and access unstructured data for your most demanding workloads.
+
+        -> Using Blob Storage we can overcome above issues 
+
+        -> Blob Storage cannot be used as OS Disk 
+
+        -> Blob Storage supports internet based access directly, no need of any computer resource 
+        like virtual machines 
+
+        -> Price is cheaper Compared to Azure Disks 
+
+        -> 500 GB Blob Storage - $11 
+
+        -> When you have vast amount of static assets, go for Blob Storage
+            (images, videos, documents pdf, doc files etc)
+
+            -> https://www.baeldung.com/wp-content/uploads/sites/4/2023/03/blob_storage_architecture-2.png
+
+        -> We Have Containers & Blobs 
+
+    -> Manage Blob Storage From VM'scalable
+    
+    -> Using CLI Creating Azure Resources 
+
+        -> Install Azure CLI (Win)
+
+        -> Install Azure CLI (Linux) : curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    -> To Login With Your Account 
+
+        -> az login --use-device-code 
+
+        az storage blob upload \
+    --account-name mystorage9989 \
+    --container-name images \
+    --name vm.txt \
+    --file vm.txt \
+    --account-key update-key-here
+
+    -> Access / Update Using Browser 
+
+        -> Directly via browser 
+
+    -> Access / Update Using Server (CLI)
+
+        -> Download Azure CLI 
+
+    -> Access / Update Using Workstation 
+
+        -> Download Azure Storage Explorer 
+
+        -> Connect To Azure Resources 
+
+            -> Connection String 
+
+
+
