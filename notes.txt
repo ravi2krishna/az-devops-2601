@@ -770,4 +770,75 @@
             -> Connection String 
 
 
+2nd Feb 2026
+==============
 
+    -> Azure File Shares 
+
+        -> An Azure File Share provides fully managed, enterprise-grade cloud file shares
+        accessible via industry-standard protocols (SMB/NFS) from Windows, Linux.
+
+        -> Attach Network File Storage for Virtual Machines  
+
+    -> Create VM 
+
+    -> Create File Share in Storage Account 
+
+    -> Connect File Share With VM 
+
+    -> To enable static website hosting, select a storage account. 
+    In the left navigation pane, select Static website rom the Data management group.
+    
+
+    -> Security 
+
+        -> Identity Level
+
+            -> Microsoft Entra ID: Manage Identities In Azure 
+
+            -> Create Users 
+
+            -> Assign Permissions Using Azure role-based access control (Azure RBAC) 
+            has several Azure built-in roles that you can assign to users
+
+            -> Adding Azure identity roles involves navigating to the "Access control (IAM)" 
+            section of a resource, subscription, or management group in the Azure portal, 
+            clicking "Add" and "Add role assignment," selecting the desired role 
+            (e.g., Contributor, Owner), and choosing the user, group, or service principal
+
+        -> Network Level 
+
+
+3rd Feb 2026
+==============
+
+    -> Network Level 
+
+    -> Security For Virtual Machines 
+
+        -> When we are talking about increased security, what we want to focus on is, 
+        placing of Virtual Machines that hold sensitive data in Private Subnets 
+
+        -> However this causes some issue
+
+            -> We cannot serve traffic from private instances as there is no route to 
+            the open internet and also we cannot access Virtual Machines that are 
+            in Private Subnets 
+
+    -> Azure Bastion 
+
+        -> The Azure Bastion service is a fully platform-managed PaaS service 
+        that you provision inside your virtual network. It provides secure and 
+        seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal
+
+        -> https://azure.microsoft.com/en-us/blog/wp-content/uploads/2019/06/c44e78bb-bfe1-47a6-b250-0643e0f6c3bd.webp
+
+        -> To Test Launch Public and Private Virtual Machines 
+
+            -> Accessing Public Virtual Machines - Works 
+
+            -> Accessing Private Virtual Machines - Fails  
+
+        -> Azure Bastion protects your virtual machines by secure and seamless RDP & SSH connectivity
+        without the need to expose them through public IP addresses. 
+        Deploying will automatically create a Bastion host on a subnet in your virtual network.
