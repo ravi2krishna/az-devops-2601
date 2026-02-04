@@ -842,3 +842,17 @@
         -> Azure Bastion protects your virtual machines by secure and seamless RDP & SSH connectivity
         without the need to expose them through public IP addresses. 
         Deploying will automatically create a Bastion host on a subnet in your virtual network.
+
+
+4th Feb 2026
+==============
+
+    -> Accessing Private Server Using Bastion 
+
+    -> Take the Private IP Of Public Server and add SSH Rule in Private Server 
+
+        -> SSH -> Port 22 -> Allow From Private IP Of Public Server
+
+    -> Login To Public Server and SSH to Private Server From Public Server
+
+
