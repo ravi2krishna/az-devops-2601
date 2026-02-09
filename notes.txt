@@ -348,7 +348,7 @@
         Azure resources. Public IP addresses enable Azure resources to communicate to 
         Internet and public-facing Azure services.
 
-            -> For Myntra Web Server we need an Public IP 
+            -> For Myntra Web Server & App Server we need an Public IP as they are internet facing entities
 
     -> Azure Network Interface Card - NIC 
 
@@ -855,4 +855,186 @@
 
     -> Login To Public Server and SSH to Private Server From Public Server
 
+6th Feb 2026
+==============
 
+    -> Connect Private Database With Application Facing On Internet 
+
+        -> https://media.istockphoto.com/id/1227417874/vector/registration-form-and-login-form-page-template.jpg?s=1024x1024&w=is&k=20&c=TLLokn9YSx5E6cY55HSn_yToJ50F_8wHhAENqMzwFj0=
+
+    -> Application Server: Frontend To Take Request 
+
+        -> Public Server 
+
+        -> Java App Server i.e Apache Tomcat Server 
+
+        -> Apache Tomcat Server Runs On Port 8080 
+
+            -> Add 8080 in Network Security Group 
+
+    -> Database Server: Store Data In Database 
+
+        -> Private Server
+
+        -> Database Server: MySQL Runs On Port 3306 
+
+            -> Add 3306 in Network Security Group, allowing from only Application Server 
+
+    -> Database Storage - IAAS - You are responsible
+
+        -> Setup Private Virtual Machine 
+        -> Install OS 
+        -> Install Patches & Updates 
+        -> Download Database Software 
+        -> Install Database Software 
+
+    -> NOTE: Once Database Server is setup, then Developer will use 
+            Database connection details in Application
+
+                -> Database connection details
+
+                    -> Address Of Database 
+                    -> Port Of Database
+                    -> Username Of Database
+                    -> Password Of Database
+
+    -> Steps For Database Setup 
+
+        -> First Login to Public Server then establish connection to private server
+
+        -> sudo ss -ntpl 
+
+            -> No port 3306 i.e No MySQL Database is present 
+
+        -> Install MySQL Database
+
+            -> sudo apt update -y 
+            -> sudo apt install docker.io -y 
+            -> sudo docker run -dt --name mysql -e MYSQL_ROOT_PASSWORD=your_password --network=host mysql:5.7
+            -> sudo ss -ntpl 
+
+        -> To verify Connectivity b/w App Server and Database Server 
+
+            -> Login To App Server 
+            -> Install MySQL Client On App Server and Check Connection With Database Server
+            -> sudo apt update -y 
+            -> sudo apt install mysql-client -y 
+            -> sudo ss -ntpl
+            -> mysql 
+            -> mysql -h pvt-db-ip -u username -p 
+            -> mysql -h 172.16.0.5 -u root -p 
+            -> SHOW DATABASES;
+            -> CREATE DATABASE jwt;
+            -> SHOW DATABASES;
+            -> USE jwt;
+            -> SHOW TABLES;
+
+                CREATE TABLE `USER` (
+                `id` int(10) unsigned NOT NULL auto_increment,
+                `first_name` varchar(45) NOT NULL,
+                `last_name` varchar(45) NOT NULL,
+                `email` varchar(45) NOT NULL,
+                `username` varchar(45) NOT NULL,
+                `password` varchar(45) NOT NULL,
+                `regdate` date NOT NULL,
+                PRIMARY KEY (`id`)
+                ) ENGINE = InnoDB DEFAULT CHARSET = latin1;	
+
+            -> SHOW TABLES;
+            -> SELECT * FROM USER;
+
+            -> Open a new session for Application Server For Code Changes 
+
+                -> Install Tomcat Server 
+
+                    -> sudo ss -ntpl 
+                    -> java 
+                    -> sudo apt update -y 
+                    -> sudo apt install openjdk-11* -y
+                    -> java
+                    -> wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.94/bin/apache-tomcat-7.0.94.tar.gz
+                    -> tar xf apache-tomcat-7.0.94.tar.gz
+                    -> sudo ss -ntpl
+                    -> ~/apache-tomcat-7.0.94/bin/startup.sh 
+                    -> sudo ss -ntpl
+                    -> Browse Public-IP:8080 
+                    -> Browse Public-IP:8080/LoginWebApp 
+                        -> HTTP Status 404 – Not Found
+
+        -> Setup Application On Tomcat & Connect With Database 
+
+            -> ls 
+            -> git clone -b aws https://github.com/ravi2krishna/aws-rds-java.git 	
+            -> ls 
+            -> cd aws-rds-java
+            
+            -> vi src/main/webapp/userRegistration.jsp
+                    
+                    Change database address & credentials
+
+                    -> "jdbc:mysql://172.16.0.5:3306/jwt", "root", "your_password"
+
+                -> vi src/main/webapp/login.jsp
+
+                    Change database address & credentials
+
+                -> Build Application 
+
+                    -> mvn package 
+
+                    -> sudo apt install maven -y
+
+                    -> ls target 
+
+                    -> mvn package
+
+                    -> ls target 
+
+                -> Deploy Application On Tomcat 
+
+                    -> Browse Public-IP:8080/LoginWebApp 
+
+                        -> HTTP Status 404 – Not Found
+
+                    -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
+
+                    -> Browse Public-IP:8080/LoginWebApp 
+
+9th Feb 2026
+==============
+
+    -> Database As A Service 
+
+        -> PAAS 
+
+    -> Azure Server With Advanced Configuration 
+
+        login_user -> Advanced123*
+
+    -> Now Update App Code With New Database Details 
+
+        -> URL, Username & Password 
+
+    -> Then Rebuild and ReDeploy Application, to test 
+
+        -> -> Build Application 
+
+                    -> mvn package 
+
+                    -> sudo apt install maven -y
+
+                    -> ls target 
+
+                    -> mvn package
+
+                    -> ls target 
+
+                -> Deploy Application On Tomcat 
+
+                    -> Browse Public-IP:8080/LoginWebApp 
+
+                        -> HTTP Status 404 – Not Found
+
+                    -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
+
+                    -> Browse Public-IP:8080/LoginWebApp 
