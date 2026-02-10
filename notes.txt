@@ -429,6 +429,7 @@
     -> Coming to security of Web Servers, they should have only 
 		-> SSH traffic enabled for administration from internet
 		-> HTTP traffic for clients from internet
+        -> HTTPS traffic for clients from internet
 
 	-> Coming to security of App Servers, they should have only 
 		-> SSH traffic enabled for administration from internet
@@ -1038,3 +1039,43 @@
                     -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
 
                     -> Browse Public-IP:8080/LoginWebApp 
+
+10th Feb 2026
+==============
+
+    -> High Availability 
+
+        -> High Availability - HA
+
+            -> High Availability in Azure ensures Applications are continuously 
+            Accessible & Operational (24X7) i.e Uptime 99.9% and Above 
+
+        -> Will have Multiple Private Instances(For Security) Deployed Across 
+        Multiple Availability Zones.
+
+            -> NOTE: If we have only one server with Application hosted, it might result 
+            in Single Point Of Failure  
+
+        
+        -> https://i.sstatic.net/6qeu7.jpg
+
+        -> A reverse proxy is a server that sits in front of web servers, 
+        acting as an intermediary to manage incoming traffic from clients (like browsers). 
+        
+        -> It enhances security by masking origin server IPs, 
+        improves performance via caching/compression, and provides load balancing 
+        to distribute traffic, with popular examples including 
+        Nginx, HAProxy, Cloudflare, and AWS Elastic Load Balancer. 
+
+    -> Key functions of a reverse proxy include:
+        
+        -> Load Balancing: Distributes client requests across multiple backend servers to 
+        prevent overload and ensure high availability.
+        -> Security & Protection: Acts as a buffer against attacks, 
+        shielding backend servers from direct exposure, and enables SSL/TLS termination.
+        -> Performance Optimization: Improves speed through caching, content compression, 
+        and web acceleration.
+        -> Centralized Authentication: Simplifies management by handling security policies 
+        at the edge. 
+
+
