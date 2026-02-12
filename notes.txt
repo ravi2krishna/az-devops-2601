@@ -1079,3 +1079,36 @@
         at the edge. 
 
 
+11th Feb 2026
+==============
+
+    -> Fault Tolerance 
+
+        -> Fault Tolerance in Azure is an ability of the systems to continue 
+        operating without interruption in the event of Hardware Failures i.e "Self Healing" 
+
+    -> Scalability 
+
+        -> Scalability in Azure is an ability of the systems to handle the 
+        increasing workloads and accommodate according to Growing Demands.
+
+    -> Azure Virtual Machine Scale Sets (VMSS)
+    
+        -> VMSS you create and manage a group of load balanced virtual machines (VM) instances.
+        The number of VM instances can automatically increase or decrease in response to 
+        demand or a defined schedule. Scale sets provide the following key benefits:
+
+            -> Easy to create and manage multiple VMs
+            -> Provides high availability and application resiliency by 
+            distributing VMs across availability zones or fault domains
+            -> Allows your application to automatically "scale" as resource demand changes
+            -> Works at large-scale
+
+12th Feb 2026
+==============
+
+    -> High Availability: Load Balancer 
+
+    -> Fault Tolerance: VMSS 
+
+    -> Scalability: VMSS (Scaling Rules)
