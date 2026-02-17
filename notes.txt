@@ -1281,7 +1281,116 @@
         -> NOTE: Building LMS Project (Code To Deployment)
 
             
+17th Feb 2026
+==============
 
+    -> Project - 1
+
+        -> LMS Project 
+
+            -> Development Team 
+
+                -> Mainly Builds Application 
+
+                -> Development Means Coding 
+
+    -> Version Control Systems (VCS)
+
+        ->  Version control / Revision control / Source control
+        is a "process" that helps to "keep track of changes" made to 
+        files (computer programs, web site files, documents etc)
+
+        -> https://www.sirhow.com/uploads/2023/07/check-gpay-transaction-history-step-4.jpg
+
+        -> Advantage Of VCS is Revert Changes To Previous Working Versions, 
+        if there are issues in new version
+
+            -> Transaction ID's (Google Pay) == Commit ID's (VCS)
+
+    -> To Implement Version Control System, we need "Git" Software 
+
+        -> Google Pay Generates Transaction ID's
+
+        -> Git Generates Commit ID's 
+
+        -> Git helps in tracking code / changes in your code 
+
+        -> Git tracks code in your laptop 
+
+        -> Git will generate commit id for every change we make 
+
+    -> All the transactions made will be stored in Server(Database), similarly
+    we store all our commit id's in Source Code Management (SCM) like a Server
+
+        -> NOTE: Mobile PHone -> Google Pay -> Bank Server (Transaction ID's)
+
+        -> NOTE: Developer Laptop -> Git -> GitHub (Commit ID's)
+
+    -> GitHub - Server Side Software - Organizations 
+
+        -> GitHub Provides a platform to store code and it's versions 
+
+        -> GitHub Stores all the versions of the code in Centralized Location (github.com)
+
+    -> NOTE: Example of a Real World Application 
+
+        -> https://notepad-plus-plus.org/downloads/ - APP 
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus - CODE 
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus/tags - VERSIONS 
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus/graphs/contributors - HISTORY 
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus/commits/master/ - COMMITS 
+
+    
+    -> Repository 
+
+        -> A "repository" contains all of your "project's files" and each file's revision history. 
+        Developers can discuss and manage your project's work within the repository.
+
+            -> https://github.com/notepad-plus-plus/notepad-plus-plus 
+
+            -> https://github.com/notepad-plus-plus/notepad-plus-plus/issues/17520 
+
+    -> JIRA 
+
+        -> Jira is a proprietary product developed by Atlassian that allows 
+        bug tracking, issue tracking and agile project management.
+
+        -> https://images.ctfassets.net/xjcz23wx147q/2vuHCsAF3tUpzYykEb9GAX/11fb10694a339636aceb9f531f11e49f/Kanban-updated.png
+
+    -> GitHub Projects & Issues 
+
+        -> GitHub Projects are a feature within GitHub designed for planning and tracking work
+
+        -> GitHub Issues is a built-in, lightweight issue-tracking system in every repository 
+        used for planning, discussing, and tracking work like 
+        bug reports, new features, and tasks.
+
+        -> NOTE: We have Projects and within Projects we have Issues 
+
+    -> Project - 1 
+
+        -> Start LMS Project (Development)
+
+            -> Create GitHub Account - https://github.com/
+            -> Create Repository (Project) 
+            -> Assign Work To Developers - Projects & Issues On GitHub 
+            -> Developers Will Start Coding - Versioning Starts 
+            -> Developers Will Update Code (PUSH) To GitHub Repository 
+
+        
+        -> Start LMS Project (Development - Developers)
+
+            -> Create GitHub Account - https://github.com/
+            -> Create Repository (Project) - https://github.com/ravi2krishna/login-26011
+            -> Assign Work To Developers - Projects & Issues On GitHub 
+            -> Developers Will Start Coding - Versioning Starts 
+            -> Developers Will Update Code (PUSH) To GitHub Repository 
+
+        
 
 
 
