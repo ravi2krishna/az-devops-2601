@@ -1381,17 +1381,40 @@
             -> Developers Will Start Coding - Versioning Starts 
             -> Developers Will Update Code (PUSH) To GitHub Repository 
 
+18th Feb 2026
+==============
+
+    -> Branches 
+
+        -> Git branches are lightweight, movable pointers to snapshots of your codebase 
         
-        -> Start LMS Project (Development - Developers)
+        -> Branches allow you to diverge from the main line of development and work on 
+        new features or bug fixes in isolation. This capability is a core feature of Git, 
+        facilitating parallel development "without affecting the stability of the main project".
+
+        -> Branches let you experiment and make changes in a contained area of the repository,
+        keeping the main (or master) branch clean and functional.
+    
+        -> https://d8it4huxumps7.cloudfront.net/uploads/images/6536475adca0a_git_create_branch_01.jpg?d=2000x2000
+
+
+    -> Start LMS Project (Development - Developers)
 
             -> Create GitHub Account - https://github.com/
             -> Create Repository (Project) - https://github.com/ravi2krishna/login-26011
             -> Assign Work To Developers - Projects & Issues On GitHub 
+                -> Project - https://github.com/users/ravi2krishna/projects/13
+                -> Issues - https://github.com/ravi2krishna/login-26011/issues 
             -> Developers Will Start Coding - Versioning Starts 
+                -> Install Git Software for Versioning (tracking)
+                    -> Open GitBash 
+                    -> Setting Git Configuration 
+                        -> git config --global user.name "github_id"
+                        -> git config --global user.email "github@gmail.com"
+                -> Install Visual Studio Code To Write Code 
+                -> Implement Features / Issues assigned to Developer 
+
             -> Developers Will Update Code (PUSH) To GitHub Repository 
-
-        
-
 
 
     
