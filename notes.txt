@@ -1770,3 +1770,154 @@
         -> ls 
 
         -> sh deploy.sh
+
+
+
+25th Feb 2026
+==============
+
+    -> Any Project (Development + Operations)
+
+    -> Login Project is Very Simple (Has Frontend Only i.e Static Web Sites)
+
+    -> Three Tier Application Architecture
+
+        -> Most Popular Applications
+
+            -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+    -> Project - 1 
+
+        -> Three Tier Application Architecture
+
+            -> It has Frontend + Backend + Databases 
+
+        -> LMS - Learning Management System 
+
+            -> https://lms.digitallync.ai/
+
+                -> LMS Application Stack 
+
+                    -> Database: POSTGRES 
+
+                    -> Backend: NODEJS 
+
+                    -> Frontend: REACTJS 
+
+                -> HRMS Application Stack 
+
+                    -> Database: MYSQL  
+
+                    -> Backend: JAVA 
+
+                    -> Frontend: ANGULARJS 
+
+            -> LMS Project Code (GitHub Repository)
+
+                -> https://github.com/ravi2krishna/lms-v1.git
+
+            -> NOTE: Try Deploying Above Project Like Login App (Deployment FAILED)
+
+        -> Real World Projects Like LMS/CRM/HRMS Applications 
+        goes with following Approach 
+
+            -> Requirement -> Design -> Coding -> Building -> Testing -> Deployment 
+
+        -> From DevOps Point Of View We Focus on 
+
+            -> Code To Deploy 
+
+                -> Coding - Developers 
+
+                    -> Code Analysis (White Box Testing) 
+
+                -> Building - Developers / DevOps Engineers 
+
+                    -> Convert Source Code To Binary Code 
+
+                        -> Developers: Workstations (Laptops)
+
+                        -> DevOps Engineers: Infrastructure (Servers)
+
+                -> Testing - QA Engineers / DevOps Engineers 
+
+                    -> Functional Test Product 
+                    -> Check Quality & Defects In Product
+
+                        -> Testers: Test Applications / Products 
+
+                        -> DevOps Engineers: CI - CD Pipelines (Testing Phase)
+                
+                -> Deployment 
+
+                    -> Make Product Live i.e End Users Should Access Product / Application
+
+                    -> DevOps Engineers: CI - CD Pipelines 
+
+    
+    
+    -> Static Code Analysis (SCA) [White Box Testing]
+
+        -> Static code analysis is an automated method of examining source code 
+        without executing it to detect bugs, security vulnerabilities, and violations of 
+        coding standards early in the development lifecycle. 
+        
+        -> It improves software quality and maintainability by 
+        analyzing code structure, logic, and compliance, 
+        often integrated into IDEs or CI/CD pipelines to provide immediate feedback.
+
+        -> Static code analysis can help identify various types of issues, including:
+
+                Syntax errors and typos
+                Unused variables and methods
+                Code duplication
+                Security vulnerabilities (e.g., SQL injection, cross-site scripting)
+                Memory leaks and resource leaks
+                Performance issues
+                Conformance to coding standards and style guidelines (e.g., indentation, naming conventions)
+
+        -> NOTE: Later on we as DevOps Engineers will write Automated CI-CD Pipelines,
+        in which SCA is one of the checks / steps 
+
+            -> https://miro.medium.com/v2/resize:fit:700/1*JSnrNQJAnyt8A2OiANfLCA.png
+
+            -> https://miro.medium.com/v2/resize:fit:1400/1*imFXvmkKx572ctTPXTCVSQ.png
+
+            -> https://media.licdn.com/dms/image/v2/D4E12AQEw-WgeGTPoKw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1726133260230?e=2147483647&v=beta&t=9SVi1jiR2f_oDciJYKnvvVEXwbZVZeK8lnyqfxToNUI
+
+    
+    -> Earlier we implemented "Version Control" Process Using "Git" Tool 
+
+    -> Now to implement "Static Code Analysis" Process We Use "SonarQube" Tool 
+
+
+    -> SonarQube
+
+        -> SonarQube is an open-source platform for continuous code quality and security analysis 
+        that helps developers identify bugs, security vulnerabilities, and code smells in their code. 
+        It integrates with CI/CD pipelines.
+
+        -> https://www.sonarsource.com/products/sonarqube/
+
+        -> https://assets-eu-01.kc-usercontent.com/ef593040-b591-0198-9506-ed88b30bc023/38955c91-7420-4a34-9640-1aa65cc4ae6c/sonarqube_general_2x.webp?w=1120&h=630&auto=format&fit=crop
+
+    
+    
+    -> SonarQube Requires Following Hardware Configuration
+
+        -> AWS 
+            
+            -> “t2.xlarge instance” i.e 16 GB RAM - 4 CPU’s on AWS, with 20 GB as Storage.  
+                
+        -> AZURE 
+            
+            -> D4s_v3, i.e 16 GB RAM - 4 CPU’s on AZURE, with 30 GB as Storage
+
+        -> NOTE: Charges Applicable i.e 16 INR per hour
+
+        -> NOTE: SonarQube works on "port 9000"
+
+            -> Make sure to add port 9000 as part of your 
+            Security Group or Network Security Group
+
+
