@@ -1921,3 +1921,63 @@
             Security Group or Network Security Group
 
 
+
+26th Feb 2026
+==============
+
+    -> Setup SonarQube 
+
+    -> To Install SonarQube Will Rely On Docker Tool (Docker is for Fastness)
+
+            -> Without Docker - https://github.com/ravi2krishna/sonarqube-installation-guide.git - 45 mins 
+
+            -> With Docker - (5-10) mins Max 
+
+    -> Verify SonarQube Installation
+
+            -> sudo ss -ntpl
+            -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
+
+        -> For SonarQube Setup, we need Docker 
+
+            docker
+            ls
+            wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            ls
+            docker   
+        
+        -> Install SonarQube
+            sudo ss -ntpl
+            sudo docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+            sudo ss -ntpl
+
+        -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
+
+        -> Default credentials are 
+            Username is admin 
+            Password is admin
+        
+    -> LMS Project Repository 
+
+        -> https://github.com/ravi2krishna/lms-v1.git
+
+    -> Github Fork
+
+        -> Forking a repository means creating a copy of the repo. 
+        When you fork a repo, you create your own copy of the repo on your GitHub account.
+
+        -> NOTE: Fork Above Project to your Github Accounts
+
+    -> Performing Code Analysis On LMS Project (Below Link Should be Replaced with your github account)
+
+        -> https://github.com/akhilsp4/lms-v1.git
+
+        ls 
+        git clone -b dev https://github.com/Vignesh-2009/lms-v1.git 
+        ls 
+        ls lms-v1
+        cd lms-v1/webapp
+        ls 
+        sudo docker run  --rm -e SONAR_HOST_URL="http://48.200.97.10:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_182c7a4d5aa0f996004d76c0f10ae9a29c2243cb -Dsonar.projectKey=lms
+
+    -> NOTE: Once LAB is done with Sonar Analysis, Delete SonarQube Server 
