@@ -2398,3 +2398,326 @@
             -> docker container run --name c1 <image>
 
             -> docker container run --name c1 hello-world 
+
+    -> To Run Containers we have Modes 
+
+        -> No Mode 
+
+            -> Containers are in exit state i.e stopped 
+
+            -> docker container run --name c1 ubuntu
+
+                -> Name Conflict & Latest Tag 
+
+            -> docker container run --name c3 ubuntu
+
+        
+        -> Interactive Mode / Foreground Mode (development / troubleshoot)
+
+            -> docker container run -it --name c4 ubuntu
+
+            -> cat /etc/os-release
+
+            -> Verify By Opening One More Sessions for Server 
+
+                -> docker container ls -a
+
+            -> NOTE: In Interactive Mode Containers will stop, once we come out of the container
+
+            -> NOTE: Containers are "Lightweight" and "Efficient" 
+
+                -> docker container run -it --name c5 ubuntu:22.04 
+
+                -> cat /etc/os-release
+
+                -> Run following command on host 
+
+                    -> ps -ef 
+
+                -> Run following command on c5 container 
+
+                    -> ps -ef 
+
+                    -> ssh 
+
+                    -> git
+
+                    -> ss 
+
+            -> NOTE: As we have Microservices, we need micro sized Environments 
+            i.e containers using images which has only what is required 
+
+        
+        -> Detached Mode / Background Mode (Production)
+
+            -> docker container run -dt --name c6 ubuntu:22.04 
+
+            -> docker container ls -a
+
+            -> NOTE: In Detached Mode Containers will never stop, unless we explicitly stop
+
+            -> docker container exec <container-name> <command> 
+
+            -> docker container exec c6 cat /etc/os-release
+
+            -> docker container exec c6 ps -ef 
+
+            -> docker container run -it --name c7 ubuntu:22.04 
+
+            -> docker container exec -it c6 bash 
+
+                -> exit 
+
+    
+    -> Container Management Commands 
+
+        -> Server: Create / Start / Stop / Remove 
+
+        -> Containers: Create / Start / Stop / Remove 
+
+            -> docker container rm <container-name>
+            -> docker container rm <container-id>
+
+            -> docker container stop <container-name>
+
+            -> docker container start <container-name>
+
+            -> docker container rm -f <container-name>
+
+        -> Another Approach To Create Containers 
+
+            -> docker pull ubuntu:25.04 
+
+            -> docker container create -it --name c10 ubuntu:25.04 
+            -> docker container start --attach -i c10
+
+
+    -> Goal: Run Web Application In Container, like we did in Server / VM  
+
+        -> Procedure in Server / VM 
+
+            -> Create Server / VM 
+            -> Update The System 
+            -> Install Nginx Web Server 
+            -> Fetch Application Code
+            -> Deploy Application On Nginx Web Server 
+
+        -> Procedure in Container (Why) 
+
+            -> NOTE: Containers are "Lightweight" and "Efficient" 
+
+            -> docker container run -dt --name web-app ubuntu:22.04 
+            -> docker container ls -a
+            -> ss -ntpl 
+            -> docker container exec -it web-app bash 
+            -> ss -ntpl 
+            -> apt update -y 
+            -> apt install iproute2 -y 
+            -> ss -ntpl 
+            -> apt install nginx -y 
+            -> service nginx start 
+            -> ss -ntpl 
+
+            -> Check properties Of container using 
+
+                -> docker container inspect web-app
+                    -> "IPAddress": "172.17.0.2"
+
+                -> curl 172.17.0.2
+
+24th Mar 2026
+==============    
+
+    -> NOTE: Above approach is not a recommended way, but it connects 
+    how we shifted from VM to Container.
+
+    -> docker container rm -f web-app
+
+    -> docker container run -dt --name web-app ubuntu:22.04 
+
+    -> docker container inspect web-app
+
+    -> curl 172.17.0.2
+
+    -> docker container exec -it web-app bash 
+
+    -> service nginx start 
+
+    -> ss -ntpl 
+
+    -> NOTE: Above approach is not a recommended way, as we need to 
+    setup nginx from scratch again 
+
+    
+    -> NOTE: Below approach is a recommended way
+
+        -> docker container run -dt --name web-app-new nginx 
+
+        -> docker container ls -a
+
+        -> docker container inspect web-app-new 
+
+        -> curl 172.17.0.3
+
+        -> docker container exec web-app-new cat /etc/os-release 
+
+    -> NOTE: 
+
+        -> docker container rm -f web-app
+
+        -> docker container rm -f web-app-new 
+
+        -> docker container run -dt --name web-app ubuntu:22.04 
+
+        -> docker container inspect web-app
+
+        -> curl 172.17.0.2
+
+        -> docker container run -dt --name web-app-new nginx 
+
+        -> docker container inspect web-app-new 
+
+        -> curl 172.17.0.3
+
+    -> Browse Public-IP (No access to Nginx Page)
+
+        -> As nginx is running on the container, not on the host 
+
+        -> Now how can we make customers access web applications from internet ??
+
+    -> To Access Containers Outside i.e internet we need to understand docker networking
+
+    -> Docker supports following network drivers, each designed for specific use case
+        
+        -> Host
+        -> None
+        -> Bridge
+
+    -> docker network ls 
+
+    -> docker container ls -a
+
+    -> docker container inspect web-app
+
+    -> docker container inspect web-app-new 
+
+    -> docker network inspect bridge  
+
+    -> NOTE: By Default, Containers will run on "bridge" network 
+
+    -> Host Network Driver
+
+        -> This driver removes network isolation between the container and the Docker host, 
+        allowing them to share the host’s networking namespace
+
+        -> docker network inspect host   
+
+        -> docker container run -dt --name web-app-host --network=host nginx 
+
+        -> docker container ls -a
+
+        -> docker network inspect host   
+
+        -> docker container inspect web-app-host
+
+        -> docker container inspect web-app
+
+        -> docker container inspect web-app-new 
+
+        -> docker container inspect web-app-host
+
+    -> NOTE: Check below command 
+
+        -> docker container run -dt --name web-app-login --network=host nginx 
+
+        -> docker container ls -a
+
+    -> NOTE: Check Container logs using 
+
+        -> docker container logs <Container-name> 
+
+        -> docker container logs web-app-login
+
+            -> nginx: [emerg] bind() to [::]:80 failed (98: Address already in use)
+
+            -> NOTE: Fix is upcoming bridge network 
+
+    
+    -> None Network Driver
+
+        -> This driver removes network access to containers i.e no network (no www)
+
+            -> docker container ls -a
+            -> docker container exec web-app apt update -y 
+            -> docker container exec web-app-host apt update -y 
+            -> docker network inspect none
+            -> docker container run -dt --name web-app-none --network=none nginx 
+            -> docker container ls -a
+            -> docker network inspect none    
+            -> docker container exec web-app-none apt update -y 
+
+        -> NOTE: This confirms we have no network access in none network mode 
+
+    
+    -> Bridge Network Driver
+
+        -> The default network driver for containers. 
+        When a new container is run, it can be attached to this Bridge network.
+
+        -> Using bridge network we can run multiple containers at same time, 
+        but cannot be accessed outside via internet. 
+
+        -> To Allow External Access To Containers using bridge, we can use Port Forwarding (-p)
+
+        -> Port Forwarding: This is the activity that makes a "port inside a container" 
+            accessible to "ports on the Docker host" for external access.
+
+            -> -P docker ephemeral ports ( predefined range 32768 to 61000 )
+
+            -> docker container run -dt --name web-app-one nginx 
+
+            -> docker container ls -a
+
+            -> docker container inspect web-app-one
+
+            -> docker container run -dt --name web-app-two -P nginx 
+
+            -> docker container ls -a
+
+            -> docker container inspect web-app-two 
+
+            -> docker container inspect web-app-one
+
+            -> Browse Public-IP:32768
+
+            -> docker container run -dt --name web-app-three -P nginx 
+
+            -> docker container ls -a
+
+            -> Browse Public-IP:32769 
+
+            -> docker container run -dt --name web-app-four -P nginx 
+
+            -> docker container ls -a
+
+            -> Browse Public-IP:32770
+
+    -> NOTE: -p docker user defined ports ( user defined range for me is 8080-9090 )
+
+        -> docker container run -dt --name web-app-five -p 8080:80 nginx 
+
+        -> docker container ls -a
+
+        -> Browse Public-IP:8080 
+
+        -> docker container run -dt --name web-app-six -p 8085:80 nginx 
+
+        -> docker container ls -a
+
+        -> Browse Public-IP:8085 
+
+    -> NOTE: Earlier we used below command 
+
+        -> docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+
+    
